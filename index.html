@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"
+    </head>
+    <body>
+        <script>
+            function cpuPlay(){
+                let num = Math.floor(Math.random() * 3);
+                let figure;
+                if(num == 0){
+                    figure = "rock";
+                }
+                if(num == 1){
+                    figure = "paper";
+                }
+                if(num == 2){
+                    figure = "scissors";
+                }
+                return figure;
+            }
+            function plrPlay(){
+                let figure = prompt("Enter your choice: ");
+                figure = figure.toLowerCase();
+                return figure;
+            }
+            function gameLoop(str1, str2){
+                let outcome;
+                if(str1 == "rock"){
+                    if(str2 == "scissors"){
+                        outcome = "You lose!"
+                    }
+                    if(str2 == "paper"){
+                        outcome = "You win!"
+                    }
+                    if(str2 == "rock"){
+                        outcome = "Draw."
+                    }
+                }
+                if(str1 == "paper"){
+                    if(str2 == "scissors"){
+                        outcome = "You win!"
+                    }
+                    if(str2 == "paper"){
+                        outcome = "Draw."
+                    }
+                    if(str2 == "rock"){
+                        outcome = "You lose!"
+                    }
+                }
+                if(str1 == "scissors"){
+                    if(str2 == "scissors"){
+                        outcome = "Draw."
+                    }
+                    if(str2 == "paper"){
+                        outcome = "You lose!"
+                    }
+                    if(str2 == "rock"){
+                        outcome = "You win!"
+                    }
+                }
+
+                return outcome;
+            }
+            function main(){
+                let input;
+                while(input != 0){
+                    let cpu = cpuPlay();
+                    input = plrPlay();
+                    let result = gameLoop(cpu, input);
+                    console.log(cpu + " vs " + input);
+                    console.log(result);
+                }
+            }
+            main();
+        </script>
+    </body>
+</html>
